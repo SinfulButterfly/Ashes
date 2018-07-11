@@ -1,8 +1,23 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
+int Square(int x, int y);
+
+int main()
+{
+    int x = 10, y = 2;
+    cout << Square(x, y);
+    return 0;
+}
+
+int Square(int x = 42, int y = 42)
+{
+    return x *= ++x + y + rand()%3;
+}
 
 
-int main ()
+void starters()
 { double *pointer_to_double = NULL;
   pointer_to_double = new double[20];
   double variable1 = 1, variable2 = 2, sum = variable2 + variable1;
@@ -13,7 +28,6 @@ int main ()
   pointer_to_double = &variable2;
   cout << *pointer_to_double << endl;
   delete []pointer_to_double;
-  return 0;
   //comments
   /*large comments; skipped data types, loops etc since remember them clearly */
 }

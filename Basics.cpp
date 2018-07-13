@@ -2,14 +2,88 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+
 int Square(int x, int y);
+double Square(double x, double y);
+int factorial(int x);
+void passing_arrays(int *fact, string arr[],int size);
+class blank_class{
+    string name;
+    public:
+    blank_class(string name)
+    {
+        name_change(name);
+    }
+    void printstring()
+    {
+    cout << "The class is working"<< endl;
+    }
+    void name_change(string new_name)
+    {
+        name = new_name;
+    }
+    void name_show()
+    {
+        cout << name;
+    }
+};
 
 int main()
 {
     int x = 10, y = 2;
-    cout << Square(x, y);
+    cout << Square(x, y) << endl;
+    int fact = 0;
+    string arr[4] = {"This","is","our","array"};
+    passing_arrays(&fact,arr,4);
+    cout << fact << endl;
+    cout << "What'll be the name?\n";
+    string inpt;
+    cin >> inpt;
+    blank_class class_example(inpt), class_example2(inpt);
+    class_example2.printstring();
+    cout << "wanna change it?" << endl;
+    string ans;
+    cin >> ans;
+    if(ans!="no")
+    {
+        cin >> inpt;
+        class_example2.name_change(inpt);
+    }
+    class_example2.name_show();
     return 0;
 }
+
+
+void passing_arrays(int *fact,string arr[],int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout  << arr[i] << endl;
+    }
+    *fact=factorial(5);
+}
+
+
+
+int factorial(int x)
+{
+    if(x==0)
+    {
+        return 1;
+    }
+    else
+    {
+        return x * factorial(x-1);
+
+    }
+}
+
+
+double Square(double x = 42, double y = 42)
+{
+    return x *= ++x + y + rand()%3;
+}
+
 
 int Square(int x = 42, int y = 42)
 {
